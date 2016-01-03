@@ -5,9 +5,7 @@ import org.powertrip.rebot.common.messages.Job;
 import org.powertrip.rebot.common.messages.Result;
 import org.powertrip.rebot.common.messages.wrappers.JobCheck;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -19,28 +17,38 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class JobApi implements JobApiInterface{
+	@POST
+	@Path("/")
 	@Override
 	public Result run(Job job) {
 		return null;
 	}
 
+	@GET
+	@Path("/{jobId}/check")
 	@Override
-	public JobCheck check(long jobId) {
+	public JobCheck check(@PathParam("jobId") long jobId) {
 		return null;
 	}
 
+	@GET
+	@Path("/{jobId}")
 	@Override
-	public Result getResult(long jobId) {
+	public Result getResult(@PathParam("jobId") long jobId) {
 		return null;
 	}
 
+	@DELETE
+	@Path("/{jobId}/cancel")
 	@Override
-	public Result cancel(long jobId) {
+	public Result cancel(@PathParam("jobId") long jobId) {
 		return null;
 	}
 
+	@DELETE
+	@Path("/{jobId}/clear")
 	@Override
-	public Result clear(long jobId) {
+	public Result clear(@PathParam("jobId") long jobId) {
 		return null;
 	}
 }

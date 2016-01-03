@@ -1,6 +1,9 @@
 package org.powertrip.rebot.common.utils;
 
 import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -13,6 +16,24 @@ import java.util.Base64;
  * 05:44
  */
 public class SerializationUtils {
+	public static String ObjectToJson(Object obj) {
+		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+		try {
+			return ow.writeValueAsString(obj);
+		} catch (JsonProcessingException e) {
+			return "{}";
+		}
+	}
+
+	public static <T> T JsonToObject(String value, Class<T> tClass) {
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			return objectMapper.readValue(value, tClass);
+		} catch (IOException e) {
+			return null;
+		}
+	}
+
 	public static byte[] serialize(Object object) throws IOException {
 		byte[] result;
 		ByteOutputStream byteOutputStream = new ByteOutputStream();

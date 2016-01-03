@@ -2,11 +2,13 @@ package org.powertrip.rebot.common.messages.wrappers;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * Created by Jaime on 03/01/2016.
  * 06:43
  */
-public class PluginHelp {
+public class PluginHelp implements Serializable{
 	PluginStats pluginStats;
 	String help;
 	String usage;

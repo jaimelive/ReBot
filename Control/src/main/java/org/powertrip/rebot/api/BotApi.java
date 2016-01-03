@@ -4,9 +4,7 @@ import org.powertrip.rebot.common.interfaces.api.BotApiInterface;
 import org.powertrip.rebot.common.messages.Result;
 import org.powertrip.rebot.common.messages.wrappers.BotStats;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -19,33 +17,47 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class BotApi implements BotApiInterface{
+
+	@POST
+	@Path("/uuid")
 	@Override
 	public BotStats getUuid(BotStats stats) {
+
 		return null;
 	}
 
+	@GET
+	@Path("/all")
 	@Override
 	public List<Long> getAllBotIds() {
 		return null;
 	}
 
+	@GET
+	@Path("/live")
 	@Override
 	public List<Long> getLiveBotIds() {
 		return null;
 	}
 
+	@GET
+	@Path("/free")
 	@Override
 	public List<Long> getFreeBotIds() {
 		return null;
 	}
 
+	@POST
+	@Path("/stats")
 	@Override
 	public List<BotStats> getBotStats(List<Long> botIds) {
 		return null;
 	}
 
+	@DELETE
+	@Path("/{ageLimitMillis}")
 	@Override
-	public Result clearOldBots(Long ageLimitInMillis) {
+	public Result clearOldBots(@PathParam("ageLimitMillis") Long ageLimitInMillis) {
 		return null;
 	}
 }

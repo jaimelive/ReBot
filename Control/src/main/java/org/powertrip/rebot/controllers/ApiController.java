@@ -16,11 +16,11 @@ public class ApiController {
 	public ApiController(Class ...classes) {
 		apis = new LinkedList<>();
 		Arrays.asList(classes).forEach(
-				clazz -> {
-					try {
-						apis.add(clazz.newInstance());
-					} catch (InstantiationException | IllegalAccessException e) {e.printStackTrace();}
-				}
+			clazz -> {
+				try {
+					apis.add(clazz.newInstance());
+				} catch (InstantiationException | IllegalAccessException e) {e.printStackTrace();}
+			}
 		);
 	}
 
