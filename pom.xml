@@ -14,5 +14,14 @@
         <module>Common</module>
     </modules>
 
+    <properties>
+        <dropwizard.version>0.9.1</dropwizard.version>
+        <jedis.version>2.7.3</jedis.version>
+        <unirest.version>1.4.7</unirest.version>
+        <commons-io.version>2.4</commons-io.version>
+
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
 </project>
